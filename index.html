@@ -1,17 +1,41 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Music</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    .sc-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .sc-grid iframe {
+      width: calc(50% - 8px); /* two per row */
+      height: 166px;
+      border: none;
+    }
+
+    /* Stack on small screens */
+    @media (max-width: 700px) {
+      .sc-grid iframe {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  
-<!--Marcel Dettmann b2b Ogazón - BFC ADE 2024: RADION Saturday-->	<iframe  width='100%' height='166' scrolling='no'  frameborder='no'  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2043157036&color=%23f60808&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true"> </iframe>
-<!--livwutang - BFC ADE 2024: Trouble² at Tilla Tec-->	<iframe  width='100%' height='166' scrolling='no'  frameborder='no'  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1961117011&color=%23f60808&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true"> </iframe>
 
+  <div class="sc-grid">
+    <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2043157036&color=%23f60808&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+
+    <iframe src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1961117011&color=%23f60808&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true"></iframe>
+
+    <!-- add more iframes, they will wrap automatically -->
+  </div>
 
 </body>
-
 </html>
