@@ -1,0 +1,23 @@
+.sc-grid {
+  display:    flex;
+  flex-wrap:  wrap;
+  gap:        16px;
+}
+
+.sc-grid iframe {
+  width: calc(33.333% - 10.66px); /* three per row with 16px gap */
+  height: 166px;
+  border: none;
+}
+
+/* Stack on small screens */
+@media (max-width: 700px) {
+  .sc-grid iframe {
+    width: 100%;
+  }
+}
+
+body {
+  margin:     0;
+  background: #000;
+}

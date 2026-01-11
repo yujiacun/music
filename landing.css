@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  background: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.landing-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.landing-container p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.enter-button {
+  text-decoration: none;
+  color: #fff;
+  background-color: #f60808;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+
+.enter-button:hover {
+  background-color: #ff2a2a;
+}
