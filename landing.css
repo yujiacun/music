@@ -20,16 +20,13 @@ body {
   margin-bottom: 2rem;
 }
 
-.enter-button {
-  text-decoration: none;
-  color: #fff;
-  background-color: #f60808;
-  padding: 12px 24px;
-  font-size: 1.2rem;
-  border-radius: 6px;
-  transition: background 0.3s;
+.landing-container {
+  text-align: left;
 }
 
-.enter-button:hover {
-  background-color: #ff2a2a;
+.enter-button {
+  color: #fff;
+  text-decoration: underline;
+  display: block; 
+  line-height: 1.0;
 }
