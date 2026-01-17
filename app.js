@@ -1,12 +1,32 @@
 // app.js
-const perPage = 16;
+
+const params = new URLSearchParams(window.location.search);
+const source = params.get('source');
+
+if (!source) {
+  alert('No data source provided');
+}
+
+// shared state
+let perPage = 24;
 let currentPage = 1;
-const totalPages = Math.ceil(tracks.length / perPage);
+let totalPages = 0;
 
 const grid = document.getElementById('grid');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const pageNumbersDiv = document.getElementById('pageNumbers');
+
+// load data dynamically
+const script = document.createElement('script');
+script.src = `${source}.json`; // must define `const tracks = [...]`
+script.onload = init;
+document.body.appendChild(script);
+
+function init() {
+  totalPages = Math.ceil(tracks.length / perPage);
+  renderPage(currentPage);
+}
 
 function renderPage(page) {
   grid.innerHTML = '';
@@ -42,13 +62,17 @@ function renderPage(page) {
 }
 
 prevBtn.addEventListener('click', () => {
-  if (currentPage > 1) { currentPage--; renderPage(currentPage); }
+  if (currentPage > 1) {
+    currentPage--;
+    renderPage(currentPage);
+  }
 });
 
 nextBtn.addEventListener('click', () => {
-  if (currentPage < totalPages) { currentPage++; renderPage(currentPage); }
+  if (currentPage < totalPages) {
+    currentPage++;
+    renderPage(currentPage);
+  }
 });
 
-// Initial render
-renderPage(currentPage);
 

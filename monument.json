@@ -1,0 +1,17 @@
+const tracks = [
+{id:"2247809180", group:"Monument", title: "Monument 0502 - Adam Pits"},
+{id:"2243641862", group:"Monument", title: "Monument 0501 - Nesa Azadikhah"},
+{id:"2239882394", group:"Monument", title: "Monument 0500 - Oscar Mulero"},
+{id:"2239427153", group:"Monument", title: "Monument 0500 - Mary Yuzovskaya - Monument Festival 2025"},
+{id:"2239402760", group:"Monument", title: "Monument 0500 - Deepbass"},
+{id:"2231765291", group:"Monument", title: "Monument 0499 - Ntogn (Midwinter Mix)"},
+{id:"2227673006", group:"Monument", title: "Monument 0498 - Denise Rabe"},
+{id:"2224179545", group:"Monument", title: "Monument 0497 - Fredrik Navigare"},
+{id:"2219464673", group:"Monument", title: "Monument 0496 - Tauceti"},
+{id:"2216047697", group:"Monument", title: "Monument 0495 - Teno"},
+{id:"2211733520", group:"Monument", title: "Monument 0494 - Loek Frey"},
+{id:"2208169076", group:"Monument", title: "Monument 0493 - Laura MRLS"},
+{id:"2203173407", group:"Monument", title: "Monument 0492 - Alexskyspirit"},
+{id:"2196764687", group:"Monument", title: "Monument 0491 - Reka Zalan"},
+{id:"2152995348", group:"Monument", title: "Monument 0482 - Stevie Cox"}
+]

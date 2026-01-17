@@ -12,5 +12,5 @@ const tracks = [
 {id:"1409049016", group:"Resident Advisor", title: "Resident Advisor 0864 - Skee Mask"},
 {id:"237639626", group:"Resident Advisor", title: "Resident Advisor 0449 - bvdub"},
 {id:"237808389", group:"Resident Advisor", title: "Resident Advisor 0367 - James Holden"},
-{id:"236489418", group:"Resident Advisor", title: "Resident Advisor 0153 - Intrusion"},
+{id:"236489418", group:"Resident Advisor", title: "Resident Advisor 0153 - Intrusion"}
 ]

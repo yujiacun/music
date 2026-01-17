@@ -28,5 +28,5 @@ const tracks = [
 {id:"747541690", group:"Mesh", title: "Mesh 0004 - John Tejada"},
 {id:"747161965", group:"Mesh", title: "Mesh 0003 - Synkro"},
 {id:"747228055", group:"Mesh", title: "Mesh 0002 - Cosmin TRG"},
-{id:"747149251", group:"Mesh", title: "Mesh 0001 - Voltereta"},
+{id:"747149251", group:"Mesh", title: "Mesh 0001 - Voltereta"}
 ]

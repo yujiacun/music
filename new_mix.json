@@ -30,5 +30,5 @@ const tracks = [
 {id:"1136956624", group:"Mesh", title: "Mesh 00019 - Kiara Scuro"},
 {id:"1873335489", group:"XLR8R", title: "XLR8R 0860 - Kenneth James Gibson"},
 {id:"1300102720", group:"XLR8R", title: "XLR8R 0755 - bvdub"},
-{id:"2215774604", group:"Zenaari", title: "Zenaari 0020 - Chami"},
+{id:"2215774604", group:"Zenaari", title: "Zenaari 0020 - Chami"}
 ]
