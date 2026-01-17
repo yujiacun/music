@@ -1,0 +1,16 @@
+const tracks = [
+{id:"2244023345", group:"Resident Advisor", title: "Resident Advisor 1021 - Katatonic Silentio"},
+{id:"2234435966", group:"Resident Advisor", title: "Resident Advisor 1020 - Crimeboys"},
+{id:"2234428070", group:"Resident Advisor", title: "Resident Advisor 1019 - OK Williams"},
+{id:"2228513735", group:"Resident Advisor", title: "Resident Advisor 1017 - Unai Trotti"},
+{id:"2225744423", group:"Resident Advisor", title: "Resident Advisor 1016 - Mala"},
+{id:"2221052069", group:"Resident Advisor", title: "Resident Advisor 1015 - Dave Huismans"},
+{id:"2208629588", group:"Resident Advisor", title: "Resident Advisor 1012 - LSDXOXO"},
+{id:"2203397299", group:"Resident Advisor", title: "Resident Advisor 1011 - Carrier"},
+{id:"2197925615", group:"Resident Advisor", title: "Resident Advisor 1010 - 1OO1O"},
+{id:"2192551355", group:"Resident Advisor", title: "Resident Advisor 1009 - Shinichi Atobe"},
+{id:"1409049016", group:"Resident Advisor", title: "Resident Advisor 0864 - Skee Mask"},
+{id:"237639626", group:"Resident Advisor", title: "Resident Advisor 0449 - bvdub"},
+{id:"237808389", group:"Resident Advisor", title: "Resident Advisor 0367 - James Holden"},
+{id:"236489418", group:"Resident Advisor", title: "Resident Advisor 0153 - Intrusion"},
+]
