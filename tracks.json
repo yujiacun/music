@@ -1,0 +1,17 @@
+const tracks = [
+  { id: '2249072990', title: 'Deep Breakfast 0344 - Chris SSG' },
+  { id: '2246763644', title: 'Coda 0053 - Nez' },
+  { id: '2247943055', title: 'Feel My Bicep 0274 - Just Lil' },
+  { id: '2247809180', title: 'Monument 0502 - Adam Pits' },
+  { id: '2247792725', title: 'Slam Radio 0677 - Lazlo' },
+  { id: '2247396785', title: 'Illian Tape - 0123 Riz La Teef' },
+  { id: '2247212795', title: 'Dekmantel 0502 - Aurora Halal and DJ Nobu' },
+  { id: '2246044232', title: 'Bassiani 0292 - Marie-Julie' },
+  { id: '2232001655', title: 'Deep Space Series 0121 - Volodymyr Gnatenko' },
+  { id: '2245925144', title: 'Reclaim Your City 0678 - Ruben Ganev' },
+  { id: '2244023345', title: 'Resident Advisor 1021 - Katatonic Silentio' },
+  { id: '2243606318', title: 'Hate 0471 - Troy' },
+  { id: '2245023812', title: 'Page 0176 - Alexander Johansson and Mattias Fridell' },
+  { id: '2133629034', title: 'Machine Ethics - Radar 2025 Q1 133-145 bpm' },
+  { id: '2131466076', title: 'Machine Ethics - Radar 2025 Q1 115-132 bpm' }
+];
