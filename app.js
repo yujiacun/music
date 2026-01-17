@@ -1,5 +1,5 @@
 // app.js
-const perPage = 9;
+const perPage = 16;
 let currentPage = 1;
 const totalPages = Math.ceil(tracks.length / perPage);
 
