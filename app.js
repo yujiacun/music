@@ -8,7 +8,7 @@ if (!source) {
 }
 
 // shared state
-let perPage = 24;
+let perPage = 20;
 let currentPage = 1;
 let totalPages = 0;
 

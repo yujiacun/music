@@ -18,17 +18,5 @@ const tracks = [
 {id:"2231108384", group:"Science Cult Radio", title: "Science Cult Radio 0052 - EC Underground"},
 {id:"2152283055", group:"Science Cult Radio", title: "Science Cult Radio 0047 - Manta"},
 {id:"747161965", group:"Mesh", title: "Mesh 0003 - Synkro"},
-{id:"846009328", group:"Mesh", title: "Mesh 0005 - Rob Clouth"},
-{id:"904941040", group:"Mesh", title: "Mesh 0008 - Lindred"},
-{id:"915524995", group:"Mesh", title: "Mesh 0009 - Reid Willis"},
-{id:"951848842", group:"Mesh", title: "Mesh 00012 - Nick Cobby"},
-{id:"988003648", group:"Mesh", title: "Mesh 00014 - Non Square"},
-{id:"1008977578", group:"Mesh", title: "Mesh 00015 - Kayla Painter"},
-{id:"1037180833", group:"Mesh", title: "Mesh 00016 - Kinn"},
-{id:"1060429990", group:"Mesh", title: "Mesh 00017 - Lake Turner"},
-{id:"1077548719", group:"Mesh", title: "Mesh 00018 - Jinjé"},
-{id:"1136956624", group:"Mesh", title: "Mesh 00019 - Kiara Scuro"},
-{id:"1873335489", group:"XLR8R", title: "XLR8R 0860 - Kenneth James Gibson"},
-{id:"1300102720", group:"XLR8R", title: "XLR8R 0755 - bvdub"},
-{id:"2215774604", group:"Zenaari", title: "Zenaari 0020 - Chami"}
+{id:"846009328", group:"Mesh", title: "Mesh 0005 - Rob Clouth"}
 ]
