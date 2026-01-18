@@ -1,0 +1,7 @@
+const tracks = [
+{id:"2233362377", group:"Pure", title: "Pure 0100 - Objekt"},
+{id:"2231103518", group:"Pure", title: "Pure 0099 - Oliver Lieb (L.S.G.)"},
+{id:"2228963519", group:"Pure", title: "Pure 0098 - femi"},
+{id:"2219105489", group:"Pure", title: "Pure 0097 - Bitter Babe"},
+{id:"2206041139", group:"Pure", title: "Pure 0096 - Cotton Mouth"}
+]
