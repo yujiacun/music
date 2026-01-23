@@ -1,5 +1,4 @@
 
-/*#### BODY #####*/
 body {
   margin: 0;
   background: #000;
@@ -43,8 +42,9 @@ body {
   .sc-player {
     flex: 1 1 100%;
   }
+}
 
-/*#### ARROWS #####*/
+/* Arrow buttons */
 .arrow {
   position: absolute;
   top: 50%;
@@ -64,8 +64,7 @@ body {
 #prev { left: -40px; }
 #next { right: -40px; }
 
-
-/*#### PAGE NNUMBERS #####*/
+/* Page numbers */
 .page-numbers {
   margin-top: 16px;
   font-size: 1.5rem;

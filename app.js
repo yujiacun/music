@@ -1,16 +1,25 @@
-// shared state
-let perPage     = 12;
-let currentPage = 1;
-let totalPages  = 0;
+// app.js
 
-const grid            = document.getElementById('grid');
-const prevBtn         = document.getElementById('prev');
-const nextBtn         = document.getElementById('next');
-const pageNumbersDiv  = document.getElementById('pageNumbers');
+const params = new URLSearchParams(window.location.search);
+const source = params.get('source');
+
+if (!source) {
+  alert('No data source provided');
+}
+
+// shared state
+let perPage = 12;
+let currentPage = 1;
+let totalPages = 0;
+
+const grid = document.getElementById('grid');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const pageNumbersDiv = document.getElementById('pageNumbers');
 
 // load data dynamically
-const script  = document.createElement('script');
-script.src    = `${source}.json`; // must define `const tracks = [...]`
+const script = document.createElement('script');
+script.src = `${source}.json`; // must define `const tracks = [...]`
 script.onload = init;
 document.body.appendChild(script);
 

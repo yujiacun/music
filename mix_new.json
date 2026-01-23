@@ -12,5 +12,5 @@ const tracks = [
 {id:"2248148078", group:"Resident Advisor", title: "Resident Advisor 1022 - KAVARI"},
 {id:"2249338904", group:"Page", title: "Page 177 - Martyn Päsch"},
 {id:"2248981397", group:"Hate", title: "Hate 0472 - Toobris"},
-{id:"2250322475", group:"Sounds From NoWhere", title: "Sounds From NoWhere 0210 - Pyramidal Decode"},
+{id:"2250322475", group:"Sounds From NoWhere", title: "Sounds From NoWhere 0210 - Pyramidal Decode"}
 ]
