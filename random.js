@@ -12,29 +12,30 @@ function shuffle(array) {
 }
 
 // Pick 12 random tracks with max 2 per group
-function getRandomTracksLimited(tracksArray, count = 12, maxPerGroup = 2) {
-  const shuffled = shuffle([...tracksArray]);
-  const groupCount = {};       // Track how many tracks we already picked per group
+function getRandomTracksLimited(tracksArray, count = 8, maxPerGroup = 1) {
+  // Group tracks by their "group" property
+  const groups = {};
+  tracksArray.forEach(track => {
+    if (!groups[track.group]) groups[track.group] = [];
+    groups[track.group].push(track);
+  });
+
   const result = [];
 
-  for (const track of shuffled) {
-    if (!groupCount[track.group]) groupCount[track.group] = 0;
-
-    if (groupCount[track.group] < maxPerGroup) {
-      result.push(track);
-      groupCount[track.group]++;
-    }
-
-    if (result.length >= count) break;
+  // Pick up to maxPerGroup from each group randomly
+  for (const groupTracks of Object.values(groups)) {
+    const shuffledGroup = shuffle([...groupTracks]);
+    const picks = shuffledGroup.slice(0, maxPerGroup);
+    result.push(...picks);
   }
 
-  return result;
+  // Shuffle final list and trim to requested count
+  return shuffle(result).slice(0, count);
 }
 
-// Render tracks
 function renderRandomTracks() {
   grid.innerHTML = '';
-  const randomTracks = getRandomTracksLimited(tracks, 12, 2);
+  const randomTracks = getRandomTracksLimited(tracks, 8, 1);
 
   randomTracks.forEach(track => {
     const iframe = document.createElement('iframe');
@@ -42,7 +43,7 @@ function renderRandomTracks() {
     iframe.dataset.track = track.id;
     iframe.title = track.title;
     iframe.loading = 'lazy';
-    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${track.id}&color=%23f60808&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true`;
+    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${track.id}&color=%23f60808&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true`;
     grid.appendChild(iframe);
   });
 }

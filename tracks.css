@@ -11,9 +11,9 @@ body {
 }
 
 .container {
-  position: relative;
-  width: 90%;
-  max-width: 3000px;
+  width: 100%;
+  max-width: 2000px;  /* prevents super-wide layouts */
+  margin: 0 auto;
 }
 
 .sc-grid {
@@ -24,23 +24,36 @@ body {
 }
 
 .sc-player {
-  flex: 1 1 calc(33.3333% - 16px); /* 3 per row by default */
-  height: 176px;
-  border: 2px solid #f60808;
+  flex: 1 1 calc(25% - 16px); /* 4 per row */
+  min-width: 450px;            /* allows wider embeds */
+  max-width: 450px;            /* increases maximum width */
+  height: 450px;               /* visual player height */
+  width: 450px;               /* visual player height */
+  border: 2px solid #000000;
   border-radius: 12px;
-  min-width: 300px;
   box-sizing: border-box;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 901px) {
+  .container {
+    width: 100%;
+    max-width: 900px;  /* prevents super-wide layouts */
+    margin: 0 auto;
+  }
+
   .sc-player {
-    flex: 1 1 calc(50% - 16px);
+    flex: 0 0 calc(25% - 16px);    
+    min-width: 250px;            /* allows wider embeds */
+    max-width: 325px;            /* increases maximum width */
+    height: 250px;               /* visual player height */
+    width: 325px;               /* visual player height */
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .sc-player {
-    flex: 1 1 100%;
+    flex: 0 0 100%;    
+    height: 380px;
   }
 }
 
@@ -80,6 +93,7 @@ body {
   text-decoration: underline;
 }
 
+/*Shuffle Button*/
 #shuffleBtn {
   background-color: #ca0202;
   color: white;

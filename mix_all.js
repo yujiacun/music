@@ -23,12 +23,14 @@ const tracks = [
 {id:"1876354455", group:"DeepBreakfast", title: "Deep Breakfast 0267 - ASIP"},
 {id:"1776186960", group:"DeepBreakfast", title: "Deep Breakfast 0249 - Inhmost"},
 {id:"1651193439", group:"DeepBreakfast", title: "Deep Breakfast 0230 - Dycide"},
+
 {id:"2222584619", group:"InvertedAudio", title: "Inverted Audio 0397 - U"},
 {id:"2218071896", group:"InvertedAudio", title: "Inverted Audio 0396 - Snad"},
 {id:"2207076743", group:"InvertedAudio", title: "Inverted Audio 0395 - Intrusion"},
 {id:"2122673253", group:"InvertedAudio", title: "Inverted Audio 0393 - Eden Aurelius"},
 {id:"2106998922", group:"InvertedAudio", title: "Inverted Audio 0392 - Wrecked Lightship"},
 {id:"1311336253", group:"InvertedAudio", title: "Inverted Audio 0365 - JakoJako"},
+
 {id:"2241762251", group:"Mesh", title: "Mesh 0038 - Drum & Lace"},
 {id:"2217970349", group:"Mesh", title: "Mesh 0037 - ALEPH"},
 {id:"2205148763", group:"Mesh", title: "Mesh 0036 - Throwing Snow"},
@@ -45,6 +47,7 @@ const tracks = [
 {id:"1060429990", group:"Mesh", title: "Mesh 0017 - Lake Turner"},
 {id:"1037180833", group:"Mesh", title: "Mesh 0016 - Kinn"},
 {id:"1008977578", group:"Mesh", title: "Mesh 0015 - Kayla Painter"},
+
 {id:"988003648", group:"Mesh", title: "Mesh 0014 - Non Square"},
 {id:"959217433", group:"Mesh", title: "Mesh 0013 - Saffronkeira"},
 {id:"951848842", group:"Mesh", title: "Mesh 0012 - Nick Cobby"},
@@ -59,6 +62,7 @@ const tracks = [
 {id:"747221989", group:"Mesh", title: "Mesh 0006 - Ben Lukas Boysen"},
 {id:"747161965", group:"Mesh", title: "Mesh 0003 - Synkro"},
 {id:"747149251", group:"Mesh", title: "Mesh 0001 - Voltereta"},
+
 {id:"2251977941", group:"Monument", title: "Monument 0503 - BLNDFLD"},
 {id:"2247809180", group:"Monument", title: "Monument 0502 - Adam Pits"},
 {id:"2243641862", group:"Monument", title: "Monument 0501 - Nesa Azadikhah"},
@@ -75,6 +79,7 @@ const tracks = [
 {id:"2203173407", group:"Monument", title: "Monument 0492 - Alexskyspirit"},
 {id:"2196764687", group:"Monument", title: "Monument 0491 - Reka Zalan"},
 {id:"2152995348", group:"Monument", title: "Monument 0482 - Stevie Cox"},
+
 {id:"2249338904", group:"Page", title: "Page 0177 - Martyn Päsch"},
 {id:"2245023812", group:"Page", title: "Page 0176 - Alexander Johansson and Mattias Fridell"},
 {id:"2237234990", group:"Page", title: "Page 0175 - Purl"},
@@ -82,6 +87,7 @@ const tracks = [
 {id:"2227730600", group:"Page", title: "Page 0173 - Obscur"},
 {id:"2211253484", group:"Page", title: "Page 0170 - Qitula"},
 {id:"2123085606", group:"Page", title: "Page 0158 - illuvia"},
+
 {id:"2250017729", group:"ReclaimYourCity", title: "Reclaim Your City 0679 - Phara"},
 {id:"2245925144", group:"ReclaimYourCity", title: "Reclaim Your City 0678 - Ruben Ganev"},
 {id:"2241701009", group:"ReclaimYourCity", title: "Reclaim Your City 0677 - Ben Sims"},
@@ -96,6 +102,7 @@ const tracks = [
 {id:"2205111551", group:"ReclaimYourCity", title: "Reclaim Your City 0668 - Rolando"},
 {id:"2199686799", group:"ReclaimYourCity", title: "Reclaim Your City 0667 - The Exaltics"},
 {id:"2194184771", group:"ReclaimYourCity", title: "Reclaim Your City 0666 - Legowelt"},
+
 {id:"2248148078", group:"ResidentAdvisor", title: "Resident Advisor 1022 - KAVARI"},
 {id:"2244023345", group:"ResidentAdvisor", title: "Resident Advisor 1021 - Katatonic Silentio"},
 {id:"2234435966", group:"ResidentAdvisor", title: "Resident Advisor 1020 - Crimeboys"},
@@ -111,6 +118,7 @@ const tracks = [
 {id:"237808389", group:"ResidentAdvisor", title: "Resident Advisor 0367 - James Holden"},
 {id:"237639626", group:"ResidentAdvisor", title: "Resident Advisor 0449 - bvdub"},
 {id:"236489418", group:"ResidentAdvisor", title: "Resident Advisor 0153 - Intrusion"},
+
 {id:"2251918886", group:"SlamRadio", title: "Slam Radio 0678 - Linear System"},
 {id:"2247209483", group:"SlamRadio", title: "Slam Radio 0677 - Lazlo"},
 {id:"2243748863", group:"SlamRadio", title: "Slam Radio 0676 - Electric Rescue"},
@@ -123,6 +131,7 @@ const tracks = [
 {id:"2206835379", group:"SlamRadio", title: "Slam Radio 0669 - Fear-E"},
 {id:"2202176291", group:"SlamRadio", title: "Slam Radio 0668 - Uväll"},
 {id:"632525472", group:"SlamRadio", title: "Slam Radio 0349 - ASC"},
+
 {id:"2161146900", group:"RoelFuncken", title: "Roel Funcken - Ambient 2025-09"},
 {id:"2149489332", group:"RoelFuncken", title: "Roel Funcken - Live 2025-08-06"},
 {id:"2114736273", group:"RoelFuncken", title: "Roel Funcken - IDM 2025-06"},
@@ -141,6 +150,7 @@ const tracks = [
 {id:"1416279028", group:"RoelFuncken", title: "Roel Funcken - New Tears"},
 {id:"1398652024", group:"RoelFuncken", title: "Roel Funcken - IDM 2022-10"},
 {id:"1388405062", group:"RoelFuncken", title: "Roel Funcken - ASC Ambient"},
+
 {id:"1253532424", group:"AnalogicalForce", title: "Analogical Force 0006 - Fluctuosa"},
 {id:"1203185029", group:"AnalogicalForce", title: "Analogical Force 0005 - Blume"},
 {id:"1185592438", group:"AnalogicalForce", title: "Analogical Force 0004 - Oscar Mulero Part 3"},
@@ -149,6 +159,7 @@ const tracks = [
 {id:"1036423567", group:"AnalogicalForce", title: "Analogical Force 0003 - Roel Funcken"},
 {id:"933967894", group:"AnalogicalForce", title: "Analogical Force 0003 - Rob Hall"},
 {id:"873270733", group:"AnalogicalForce", title: "Analogical Force 0001 - Plaid"},
+
 {id:"2250002045", group:"MonumentRecordings", title: "Monument Recordings - Hagva - Omen Wapta Weekender 2025-10"},
 {id:"2234185658", group:"MonumentRecordings", title: "Monument Recordings - Steve Bicknell - Monument at the Villa - Oslo"},
 {id:"2226372071", group:"MonumentRecordings", title: "Monument Recordings - Hohe Live - Otkrice Festival - Montenegro 2025"},
@@ -161,13 +172,15 @@ const tracks = [
 {id:"2154932010", group:"MonumentRecordings", title: "Monument Recordings - Glassz — Up To Date Festival 2025"},
 {id:"2151261138", group:"MonumentRecordings", title: "Monument Recordings - Fernie @ S.U.N Festival 2025 - Hungary"},
 {id:"2129635305", group:"MonumentRecordings", title: "Monument Recordings - Luce & Biocym B2B @ SLATE & MIGARDEN - Milan"},
-{id:"2221833938", group:"Monument Waves", title: "Monument Waves 0007 - Multicast Dynamics"},
-{id:"2171944287", group:"Monument Waves", title: "Monument Waves 0006 - LF58"},
-{id:"2133649884", group:"Monument Waves", title: "Monument Waves 0005 - Sybil"},
-{id:"2050681052", group:"Monument Waves", title: "Monument Waves 0004 - Jo Johnson"},
-{id:"1938554435", group:"Monument Waves", title: "Monument Waves 0003 - Mareena"},
-{id:"1771194798", group:"Monument Waves", title: "Monument Waves 0002 - ASIP"},
-{id:"1648172403", group:"Monument Waves", title: "Monument Waves 0001 - Chris SSG"},
+
+{id:"2221833938", group:"MonumentWaves", title: "Monument Waves 0007 - Multicast Dynamics"},
+{id:"2171944287", group:"MonumentWaves", title: "Monument Waves 0006 - LF58"},
+{id:"2133649884", group:"MonumentWaves", title: "Monument Waves 0005 - Sybil"},
+{id:"2050681052", group:"MonumentWaves", title: "Monument Waves 0004 - Jo Johnson"},
+{id:"1938554435", group:"MonumentWaves", title: "Monument Waves 0003 - Mareena"},
+{id:"1771194798", group:"MonumentWaves", title: "Monument Waves 0002 - ASIP"},
+{id:"1648172403", group:"MonumentWaves", title: "Monument Waves 0001 - Chris SSG"},
+
 {id:"2243752742", group:"Nousklaer", title: "Nous'klaer 0042 - Lenxi"},
 {id:"2196033119", group:"Nousklaer", title: "Nous'klaer 0041 - Zara - Mostra 2025"},
 {id:"2095409619", group:"Nousklaer", title: "Nous'klaer 0040 - Hervé"},
@@ -177,6 +190,7 @@ const tracks = [
 {id:"1909515758", group:"Nousklaer", title: "Nous'klaer 0036 - Marie Pravda b2b fleika (Live at Planeta Pravda)"},
 {id:"1173348991", group:"Nousklaer", title: "Nous'klaer 0035 - Martinou (Live)"},
 {id:"325001598", group:"Nousklaer", title: "Nous'klaer 0014 - upsammy"},
+
 {id:"2241599327", group:"Rural", title: "Rural 2025 - Akuma No Numa"},
 {id:"2221845092", group:"Rural", title: "Rural 2025 - Ginger Coven"},
 {id:"2217990350", group:"Rural", title: "Rural 2025 - Resom"},
@@ -187,4 +201,12 @@ const tracks = [
 {id:"2184122543", group:"Rural", title: "Rural 2025 - Saito"},
 {id:"2180665707", group:"Rural", title: "Rural 2025 - Toner"},
 {id:"2171377794", group:"Rural", title: "Rural 2025 - Oscar Mulero"},
+
+{id:"2245948265", group:"Pure", title: "Pure 0101 - Crystallmess"},
+{id:"2233362377", group:"Pure", title: "Pure 0100 - Objekt"},
+{id:"2231103518", group:"Pure", title: "Pure 0099 - Oliver Lieb (L.S.G.)"},
+{id:"2228963519", group:"Pure", title: "Pure 0098 - femi"},
+{id:"2219105489", group:"Pure", title: "Pure 0097 - Bitter Babe"},
+{id:"2206041139", group:"Pure", title: "Pure 0096 - Cotton Mouth"}
+
 ]

@@ -7,7 +7,7 @@ if (!group) {
 }
 
 // shared state
-let perPage = 12;
+let perPage = 8;
 let currentPage = 1;
 let totalPages = 0;
 
@@ -45,7 +45,7 @@ function renderPage(page) {
   iframe.dataset.track = track.id;
   iframe.title = track.title;
   iframe.loading = 'lazy';
-  iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${track.id}&color=%23ca0202&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true`;
+  iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${track.id}&color=%23ca0202&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true`;
   grid.appendChild(iframe);
 });
 
