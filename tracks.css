@@ -25,7 +25,7 @@ body {
 
 .sc-player {
   flex: 1 1 calc(33.3333% - 16px); /* 3 per row by default */
-  height: 200px;
+  height: 176px;
   border: 2px solid #f60808;
   border-radius: 12px;
   min-width: 300px;
@@ -61,8 +61,8 @@ body {
   transition: opacity 0.2s;
 }
 
-#prev { left: -40px; }
-#next { right: -40px; }
+#prev { left: -70px; }
+#next { right: -70px; }
 
 /* Page numbers */
 .page-numbers {
@@ -78,4 +78,19 @@ body {
 .page-numbers .current {
   font-weight: bold;
   text-decoration: underline;
+}
+
+#shuffleBtn {
+  background-color: #ca0202;
+  color: white;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+#shuffleBtn:hover {
+  opacity: 0.8;
 }
