@@ -25,7 +25,9 @@ document.body.appendChild(script);
 let filteredTracks = [];
 
 function init() {
-  filteredTracks = tracks.filter(t => t.group === group);
+  filteredTracks = tracks
+    .filter(t => t.group === group)
+    .sort((a, b) => Number(b.id) - Number(a.id));
   totalPages = Math.max(1, Math.ceil(filteredTracks.length / perPage));
   renderPage(currentPage);
   console.log('Group:', group);

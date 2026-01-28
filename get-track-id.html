@@ -37,15 +37,6 @@
       background: #1a1a1a;
       color: #fff;
     }
-    select {
-      padding: 0.5rem;
-      font-size: 0.9rem;
-      border: 1px solid #333;
-      border-radius: 4px;
-      background: #1a1a1a;
-      color: #fff;
-      width: 180px;
-    }
     button {
       padding: 0.75rem 1.5rem;
       background: #4a9eff;
@@ -104,7 +95,7 @@
 </head>
 <body>
   <h1>SoundCloud Track ID Finder</h1>
-  <p>Paste up to 10 SoundCloud URLs and select a group for each:</p>
+  <p>Paste up to 10 SoundCloud URLs:</p>
 
   <div id="inputs"></div>
 
@@ -115,24 +106,6 @@
   </div>
 
   <script>
-    const groups = [
-      'AnalogicalForce',
-      'DeepBreakfast',
-      'InvertedAudio',
-      'Mesh',
-      'Monument',
-      'MonumentRecordings',
-      'MonumentWaves',
-      'Nousklaer',
-      'Page',
-      'Pure',
-      'ReclaimYourCity',
-      'ResidentAdvisor',
-      'RoelFuncken',
-      'Rural',
-      'SlamRadio'
-    ];
-
     // Create 10 input rows
     const inputsDiv = document.getElementById('inputs');
     for (let i = 0; i < 10; i++) {
@@ -141,14 +114,11 @@
       row.innerHTML = `
         <span>${i + 1}.</span>
         <input type="text" id="url${i}" placeholder="https://soundcloud.com/...">
-        <select id="group${i}">
-          ${groups.map(g => `<option value="${g}">${g}</option>`).join('')}
-        </select>
       `;
       inputsDiv.appendChild(row);
     }
 
-    async function getTrackId(url, group) {
+    async function getTrackId(url) {
       const oembedUrl = `https://soundcloud.com/oembed?format=json&url=${encodeURIComponent(url)}`;
       const response = await fetch(oembedUrl);
 
@@ -163,7 +133,7 @@
       if (match) {
         const trackId = match[1];
         const title = data.title || 'Unknown';
-        return { id: trackId, group: group, title: title };
+        return { id: trackId, title: title };
       } else {
         throw new Error('Could not extract track ID');
       }
@@ -180,11 +150,10 @@
 
       for (let i = 0; i < 10; i++) {
         const url = document.getElementById(`url${i}`).value.trim();
-        const group = document.getElementById(`group${i}`).value;
 
         if (url) {
           try {
-            const track = await getTrackId(url, group);
+            const track = await getTrackId(url);
             results.push(track);
           } catch (err) {
             errors.push(`Row ${i + 1}: ${err.message}`);
@@ -197,11 +166,6 @@
         return;
       }
 
-      // Generate code lines for mix_all.js
-      const codeLines = results.map(t =>
-        `{id:"${t.id}", group:"${t.group}", title: "${t.title}"},`
-      ).join('\n');
-
       // Generate tab-separated lines for spreadsheet (ID \t Title)
       const tsvLines = results.map(t => `${t.id}\t${t.title}`).join('\n');
 
@@ -210,11 +174,7 @@
       if (results.length > 0) {
         html += `<p class="success">Found ${results.length} track(s):</p>`;
 
-        html += `<p style="margin-top:1rem; color:#888;">For mix_all.js:</p>`;
-        html += `<div class="code-output" id="codeLine">${codeLines}</div>`;
-        html += `<button class="copy-btn" onclick="copyCode()">Copy Code</button>`;
-
-        html += `<p style="margin-top:1.5rem; color:#888;">For spreadsheet (ID + Title):</p>`;
+        html += `<p style="margin-top:1rem; color:#888;">For spreadsheet (ID + Title):</p>`;
         html += `<div class="code-output" id="tsvLine">${tsvLines}</div>`;
         html += `<button class="copy-btn" onclick="copyTsv()">Copy for Spreadsheet</button>`;
       }
@@ -225,15 +185,6 @@
       }
 
       output.innerHTML = html;
-    }
-
-    function copyCode() {
-      const code = document.getElementById('codeLine').textContent;
-      navigator.clipboard.writeText(code);
-      event.target.textContent = 'Copied!';
-      setTimeout(() => {
-        event.target.textContent = 'Copy Code';
-      }, 2000);
     }
 
     function copyTsv() {

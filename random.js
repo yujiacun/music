@@ -17,31 +17,37 @@ function shuffle(array) {
   return arr;
 }
 
-// Pick 12 random tracks with max 2 per group
-function getRandomTracksLimited(tracksArray, count = 8, maxPerGroup = 1) {
-  // Group tracks by their "group" property
-  const groups = {};
-  tracksArray.forEach(track => {
-    if (!groups[track.group]) groups[track.group] = [];
-    groups[track.group].push(track);
-  });
+// Pick random tracks weighted by group size
+// Larger groups have proportionally more chances to be selected
+function getRandomTracksWeighted(tracksArray, count = 8) {
+  // Shuffle all tracks and pick from the full pool
+  // This naturally weights by group size - groups with more tracks
+  // have a higher probability of being selected
+  const shuffled = shuffle([...tracksArray]);
 
+  // To avoid too many from the same group, limit to max 2 per group
   const result = [];
+  const groupCounts = {};
+  const maxPerGroup = 2;
 
-  // Pick up to maxPerGroup from each group randomly
-  for (const groupTracks of Object.values(groups)) {
-    const shuffledGroup = shuffle([...groupTracks]);
-    const picks = shuffledGroup.slice(0, maxPerGroup);
-    result.push(...picks);
+  for (const track of shuffled) {
+    if (result.length >= count) break;
+
+    const group = track.group;
+    groupCounts[group] = (groupCounts[group] || 0);
+
+    if (groupCounts[group] < maxPerGroup) {
+      result.push(track);
+      groupCounts[group]++;
+    }
   }
 
-  // Shuffle final list and trim to requested count
-  return shuffle(result).slice(0, count);
+  return shuffle(result);
 }
 
 function renderRandomTracks() {
   grid.innerHTML = '';
-  const randomTracks = getRandomTracksLimited(tracks, 8, 1);
+  const randomTracks = getRandomTracksWeighted(tracks, 8);
 
   randomTracks.forEach(track => {
     const iframe = document.createElement('iframe');
