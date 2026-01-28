@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SoundCloud Track ID Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h1 {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+    .input-row {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      align-items: center;
+    }
+    .input-row span {
+      color: #666;
+      width: 1.5rem;
+    }
+    input {
+      flex: 1;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.9rem;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background: #1a1a1a;
+      color: #fff;
+    }
+    select {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      border: 1px solid #333;
+      border-radius: 4px;
+      background: #1a1a1a;
+      color: #fff;
+      width: 180px;
+    }
+    button {
+      padding: 0.75rem 1.5rem;
+      background: #4a9eff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+    button:hover {
+      background: #6bb3ff;
+    }
+    #result {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: #1a1a1a;
+      border-radius: 4px;
+      display: none;
+    }
+    #result.show {
+      display: block;
+    }
+    .error {
+      color: #e63946;
+    }
+    .success {
+      color: #4a9eff;
+    }
+    .code-output {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      background: #000;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      white-space: pre-wrap;
+      word-break: break-all;
+      max-height: 400px;
+      overflow-y: auto;
+    }
+    .copy-btn {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      background: #333;
+    }
+    .copy-btn:hover {
+      background: #444;
+    }
+    .status {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>SoundCloud Track ID Finder</h1>
+  <p>Paste up to 10 SoundCloud URLs and select a group for each:</p>
+
+  <div id="inputs"></div>
+
+  <button onclick="getAllTrackIds()">Get All Track IDs</button>
+
+  <div id="result">
+    <div id="output"></div>
+  </div>
+
+  <script>
+    const groups = [
+      'AnalogicalForce',
+      'DeepBreakfast',
+      'InvertedAudio',
+      'Mesh',
+      'Monument',
+      'MonumentRecordings',
+      'MonumentWaves',
+      'Nousklaer',
+      'Page',
+      'Pure',
+      'ReclaimYourCity',
+      'ResidentAdvisor',
+      'RoelFuncken',
+      'Rural',
+      'SlamRadio'
+    ];
+
+    // Create 10 input rows
+    const inputsDiv = document.getElementById('inputs');
+    for (let i = 0; i < 10; i++) {
+      const row = document.createElement('div');
+      row.className = 'input-row';
+      row.innerHTML = `
+        <span>${i + 1}.</span>
+        <input type="text" id="url${i}" placeholder="https://soundcloud.com/...">
+        <select id="group${i}">
+          ${groups.map(g => `<option value="${g}">${g}</option>`).join('')}
+        </select>
+      `;
+      inputsDiv.appendChild(row);
+    }
+
+    async function getTrackId(url, group) {
+      const oembedUrl = `https://soundcloud.com/oembed?format=json&url=${encodeURIComponent(url)}`;
+      const response = await fetch(oembedUrl);
+
+      if (!response.ok) {
+        throw new Error('Track not found');
+      }
+
+      const data = await response.json();
+      const iframeHtml = data.html;
+      const match = iframeHtml.match(/tracks%2F(\d+)/);
+
+      if (match) {
+        const trackId = match[1];
+        const title = data.title || 'Unknown';
+        return { id: trackId, group: group, title: title };
+      } else {
+        throw new Error('Could not extract track ID');
+      }
+    }
+
+    async function getAllTrackIds() {
+      const result = document.getElementById('result');
+      const output = document.getElementById('output');
+      result.className = 'show';
+      output.innerHTML = 'Processing...';
+
+      const results = [];
+      const errors = [];
+
+      for (let i = 0; i < 10; i++) {
+        const url = document.getElementById(`url${i}`).value.trim();
+        const group = document.getElementById(`group${i}`).value;
+
+        if (url) {
+          try {
+            const track = await getTrackId(url, group);
+            results.push(track);
+          } catch (err) {
+            errors.push(`Row ${i + 1}: ${err.message}`);
+          }
+        }
+      }
+
+      if (results.length === 0 && errors.length === 0) {
+        output.innerHTML = '<span class="error">Please enter at least one URL</span>';
+        return;
+      }
+
+      // Generate code lines for mix_all.js
+      const codeLines = results.map(t =>
+        `{id:"${t.id}", group:"${t.group}", title: "${t.title}"},`
+      ).join('\n');
+
+      // Generate tab-separated lines for spreadsheet (ID \t Title)
+      const tsvLines = results.map(t => `${t.id}\t${t.title}`).join('\n');
+
+      let html = '';
+
+      if (results.length > 0) {
+        html += `<p class="success">Found ${results.length} track(s):</p>`;
+
+        html += `<p style="margin-top:1rem; color:#888;">For mix_all.js:</p>`;
+        html += `<div class="code-output" id="codeLine">${codeLines}</div>`;
+        html += `<button class="copy-btn" onclick="copyCode()">Copy Code</button>`;
+
+        html += `<p style="margin-top:1.5rem; color:#888;">For spreadsheet (ID + Title):</p>`;
+        html += `<div class="code-output" id="tsvLine">${tsvLines}</div>`;
+        html += `<button class="copy-btn" onclick="copyTsv()">Copy for Spreadsheet</button>`;
+      }
+
+      if (errors.length > 0) {
+        html += `<p class="status error">Errors:</p>`;
+        html += `<ul>${errors.map(e => `<li class="error">${e}</li>`).join('')}</ul>`;
+      }
+
+      output.innerHTML = html;
+    }
+
+    function copyCode() {
+      const code = document.getElementById('codeLine').textContent;
+      navigator.clipboard.writeText(code);
+      event.target.textContent = 'Copied!';
+      setTimeout(() => {
+        event.target.textContent = 'Copy Code';
+      }, 2000);
+    }
+
+    function copyTsv() {
+      const tsv = document.getElementById('tsvLine').textContent;
+      navigator.clipboard.writeText(tsv);
+      event.target.textContent = 'Copied!';
+      setTimeout(() => {
+        event.target.textContent = 'Copy for Spreadsheet';
+      }, 2000);
+    }
+  </script>
+</body>
+</html>

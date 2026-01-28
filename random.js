@@ -1,14 +1,20 @@
 const grid = document.getElementById('grid');
 
-// Shuffle helper
+// Better random number generator using crypto API
+function secureRandom() {
+  const array = new Uint32Array(1);
+  crypto.getRandomValues(array);
+  return array[0] / (0xFFFFFFFF + 1);
+}
+
+// Shuffle helper using crypto-based randomness
 function shuffle(array) {
-  let currentIndex = array.length, randomIndex;
-  while (currentIndex !== 0) {
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(secureRandom() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
-  return array;
+  return arr;
 }
 
 // Pick 12 random tracks with max 2 per group

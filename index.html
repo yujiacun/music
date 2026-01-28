@@ -10,22 +10,53 @@
 
 <body>
   <div class="landing-container">
-  <a href="random.html" class="enter-button"         style="color: red;">Random</a><br>
-  <a href="tracks.html?group=AnalogicalForce"        class="enter-button">Analogical Force</a><br> 
-  <a href="tracks.html?group=DeepBreakfast"          class="enter-button">Deep Breakfast</a><br>
-  <a href="tracks.html?group=InvertedAudio"          class="enter-button">Inverted Audio</a><br>
-  <a href="tracks.html?group=Mesh"                   class="enter-button">Mesh</a><br>
-  <a href="tracks.html?group=Monument"               class="enter-button">Monument</a><br>
-  <a href="tracks.html?group=MonumentRecordings"     class="enter-button">Monument Recordings</a><br>
-  <a href="tracks.html?group=MonumentWaves"          class="enter-button">Monument Waves</a><br>
-  <a href="tracks.html?group=Nousklaer"              class="enter-button">Nous'klaer</a><br>
-  <a href="tracks.html?group=Page"                   class="enter-button">Page</a><br>
-  <a href="tracks.html?group=Pure"                   class="enter-button">Pure</a><br>
-  <a href="tracks.html?group=ReclaimYourCity"        class="enter-button">Reclaim Your City</a><br>
-  <a href="tracks.html?group=ResidentAdvisor"        class="enter-button">Resident Advisor</a><br>
-  <a href="tracks.html?group=RoelFuncken"            class="enter-button">Roel Funcken</a><br>
-  <a href="tracks.html?group=SlamRadio"              class="enter-button">Slam Radio</a><br>
+    <div class="section">
+      <div class="link-grid">
+        <a href="all.html" class="link-item" data-group="all">All Mixes</a>
+        <a href="random.html" class="link-item">Random Mixes</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">Mix Series</h2>
+      <div class="link-grid">
+        <a href="tracks.html?group=AnalogicalForce" class="link-item" data-group="AnalogicalForce">Analogical Force</a>
+        <a href="tracks.html?group=DeepBreakfast" class="link-item" data-group="DeepBreakfast">Deep Breakfast</a>
+        <a href="tracks.html?group=InvertedAudio" class="link-item" data-group="InvertedAudio">Inverted Audio</a>
+        <a href="tracks.html?group=Mesh" class="link-item" data-group="Mesh">Mesh</a>
+        <a href="tracks.html?group=Monument" class="link-item" data-group="Monument">Monument</a>
+        <a href="tracks.html?group=MonumentRecordings" class="link-item" data-group="MonumentRecordings">Monument Recordings</a>
+        <a href="tracks.html?group=MonumentWaves" class="link-item" data-group="MonumentWaves">Monument Waves</a>
+        <a href="tracks.html?group=Nousklaer" class="link-item" data-group="Nousklaer">Nous'klaer</a>
+        <a href="tracks.html?group=Page" class="link-item" data-group="Page">Page</a>
+        <a href="tracks.html?group=Pure" class="link-item" data-group="Pure">Pure</a>
+        <a href="tracks.html?group=ReclaimYourCity" class="link-item" data-group="ReclaimYourCity">Reclaim Your City</a>
+        <a href="tracks.html?group=ResidentAdvisor" class="link-item" data-group="ResidentAdvisor">Resident Advisor</a>
+        <a href="tracks.html?group=SlamRadio" class="link-item" data-group="SlamRadio">Slam Radio</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2 class="section-title">DJ Mixes</h2>
+      <div class="link-grid">
+        <a href="tracks.html?group=RoelFuncken" class="link-item" data-group="RoelFuncken">Roel Funcken</a>
+      </div>
+    </div>
   </div>
+
+  <script src="mix_all.js"></script>
+  <script>
+    document.querySelectorAll('.link-item[data-group]').forEach(link => {
+      const group = link.dataset.group;
+      let count;
+      if (group === 'all') {
+        count = tracks.length;
+      } else {
+        count = tracks.filter(t => t.group === group).length;
+      }
+      link.textContent = link.textContent + ' (' + count + ')';
+    });
+  </script>
 </body>
 
 </html>

@@ -1,6 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
 body {
-  margin: 0;
   background: #000;
   display: flex;
   justify-content: center;
@@ -8,12 +16,14 @@ body {
   min-height: 100vh;
   flex-direction: column;
   color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .container {
   width: 100%;
-  max-width: 2000px;  /* prevents super-wide layouts */
+  max-width: 2000px;
   margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .sc-grid {
@@ -24,29 +34,29 @@ body {
 }
 
 .sc-player {
-  flex: 1 1 calc(25% - 16px); /* 4 per row */
-  min-width: 450px;            /* allows wider embeds */
-  max-width: 450px;            /* increases maximum width */
-  height: 450px;               /* visual player height */
-  width: 450px;               /* visual player height */
+  flex: 1 1 calc(25% - 16px);
+  min-width: min(450px, 100%);
+  max-width: 450px;
+  height: 450px;
+  width: 450px;
   border: 2px solid #000000;
-  border-radius: 12px;
-  box-sizing: border-box;
+  border-radius: 20px;
 }
+
 
 @media (max-width: 901px) {
   .container {
     width: 100%;
-    max-width: 900px;  /* prevents super-wide layouts */
+    max-width: 900px;  
     margin: 0 auto;
   }
 
   .sc-player {
     flex: 0 0 calc(25% - 16px);    
-    min-width: 250px;            /* allows wider embeds */
-    max-width: 325px;            /* increases maximum width */
-    height: 250px;               /* visual player height */
-    width: 325px;               /* visual player height */
+    min-width: 250px;         
+    max-width: 325px;        
+    height: 250px;           
+    width: 325px;         
   }
 }
 
@@ -57,7 +67,7 @@ body {
   }
 }
 
-/* Arrow buttons */
+/* ARROW BUTTONS */
 .arrow {
   position: absolute;
   top: 50%;
@@ -77,7 +87,7 @@ body {
 #prev { left: -70px; }
 #next { right: -70px; }
 
-/* Page numbers */
+/*PAGE NUMBERS*/
 .page-numbers {
   margin-top: 16px;
   font-size: 1.5rem;
@@ -93,7 +103,7 @@ body {
   text-decoration: underline;
 }
 
-/*Shuffle Button*/
+/*SHUFFLE BUTTON*/
 #shuffleBtn {
   background-color: #ca0202;
   color: white;
@@ -107,4 +117,20 @@ body {
 
 #shuffleBtn:hover {
   opacity: 0.8;
+}
+
+/* HOME LINK */
+.home-link {
+  position: fixed;
+  top: 1rem;
+  left: 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.home-link:hover {
+  text-decoration: underline;
 }
