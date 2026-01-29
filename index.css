@@ -76,6 +76,18 @@ body {
   color: #ff4d5a;
 }
 
+/* Tablet */
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem;
+  }
+
+  .site-title {
+    font-size: 2.2rem;
+  }
+}
+
+/* Mobile */
 @media (max-width: 480px) {
   body {
     padding: 1.5rem;
@@ -83,5 +95,10 @@ body {
 
   .site-title {
     font-size: 2rem;
+  }
+
+  .link-item {
+    font-size: 0.95rem;
+    padding: 0.35rem 0;
   }
 }

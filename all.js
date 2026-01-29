@@ -1,13 +1,19 @@
-// all.js - Shows all mixes sorted by ID (latest first)
+// all.js - Shows all mixes with sort options
 
 let perPage = 8;
 let currentPage = 1;
 let totalPages = 0;
+let currentSort = 'latest';
 
 const grid = document.getElementById('grid');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const pageNumbersDiv = document.getElementById('pageNumbers');
+
+// Sort buttons
+const sortLatestBtn = document.getElementById('sortLatest');
+const sortEarliestBtn = document.getElementById('sortEarliest');
+const sortRandomBtn = document.getElementById('sortRandom');
 
 // load data dynamically
 const script = document.createElement('script');
@@ -16,13 +22,52 @@ script.onload = init;
 document.body.appendChild(script);
 
 let sortedTracks = [];
+let baseTracks = [];
+
+// Shuffle helper using crypto-based randomness
+function secureRandom() {
+  const array = new Uint32Array(1);
+  crypto.getRandomValues(array);
+  return array[0] / (0xFFFFFFFF + 1);
+}
+
+function shuffle(array) {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(secureRandom() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
 
 function init() {
-  // Sort all tracks by ID (numeric), largest first (latest)
-  sortedTracks = [...tracks].sort((a, b) => Number(b.id) - Number(a.id));
+  baseTracks = [...tracks];
+  applySortAndRender('latest');
+  console.log('Total tracks:', baseTracks.length);
+}
+
+function applySortAndRender(sortType) {
+  currentSort = sortType;
+  currentPage = 1;
+
+  // Update active button
+  sortLatestBtn.classList.remove('active');
+  sortEarliestBtn.classList.remove('active');
+  sortRandomBtn.classList.remove('active');
+
+  if (sortType === 'latest') {
+    sortedTracks = [...baseTracks].sort((a, b) => Number(b.id) - Number(a.id));
+    sortLatestBtn.classList.add('active');
+  } else if (sortType === 'earliest') {
+    sortedTracks = [...baseTracks].sort((a, b) => Number(a.id) - Number(b.id));
+    sortEarliestBtn.classList.add('active');
+  } else if (sortType === 'random') {
+    sortedTracks = shuffle(baseTracks);
+    sortRandomBtn.classList.add('active');
+  }
+
   totalPages = Math.max(1, Math.ceil(sortedTracks.length / perPage));
   renderPage(currentPage);
-  console.log('Total tracks:', sortedTracks.length);
 }
 
 function renderPage(page) {
@@ -71,3 +116,8 @@ nextBtn.addEventListener('click', () => {
     renderPage(currentPage);
   }
 });
+
+// Sort button listeners
+sortLatestBtn.addEventListener('click', () => applySortAndRender('latest'));
+sortEarliestBtn.addEventListener('click', () => applySortAndRender('earliest'));
+sortRandomBtn.addEventListener('click', () => applySortAndRender('random'));

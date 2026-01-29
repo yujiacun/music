@@ -9,15 +9,21 @@
 
 <body>
 
-<a href="index.html" class="home-link">Home</a>
-
   <div class="container">
     <button class="arrow" id="prev">&#8592;</button>
     <div class="sc-grid" id="grid"></div>
     <button class="arrow" id="next">&#8594;</button>
   </div>
 
-  <div class="page-numbers" id="pageNumbers"></div>
+  <div class="bottom-nav">
+    <a href="index.html" class="home-link">Home</a>
+    <div class="sort-controls">
+      <button class="sort-btn active" id="sortLatest">Latest</button>
+      <button class="sort-btn" id="sortEarliest">Earliest</button>
+      <button class="sort-btn" id="sortRandom">Random</button>
+    </div>
+    <div class="page-numbers" id="pageNumbers"></div>
+  </div>
   <script src="app.js"></script>
   
 </body>
