@@ -1,4 +1,4 @@
-// app.js
+// app.js - Individual group track page
 const params = new URLSearchParams(window.location.search);
 const group = params.get('group');
 
@@ -30,22 +30,6 @@ document.body.appendChild(script);
 
 let filteredTracks = [];
 let baseTracks = [];
-
-// Shuffle helper using crypto-based randomness
-function secureRandom() {
-  const array = new Uint32Array(1);
-  crypto.getRandomValues(array);
-  return array[0] / (0xFFFFFFFF + 1);
-}
-
-function shuffle(array) {
-  const arr = [...array];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(secureRandom() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
 
 // Returns page numbers with ellipsis truncation
 function getVisiblePages(current, total) {
@@ -108,7 +92,7 @@ function renderPage(page) {
     iframe.dataset.track = track.id;
     iframe.title = track.title;
     iframe.loading = 'lazy';
-    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${track.id}&color=%23ca0202&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=true&visual=true`;
+    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${track.id}&color=%23f60808&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true`;
     grid.appendChild(iframe);
   });
 

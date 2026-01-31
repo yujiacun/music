@@ -255,7 +255,7 @@ body {
   border: 1px solid #333;
   border-radius: 8px;
   padding: 1.5rem;
-  max-width: 500px;
+  max-width: 700px;
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
@@ -269,9 +269,21 @@ body {
 }
 
 .filter-groups {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  columns: 3;
+  column-gap: 0.5rem;
+}
+
+.filter-groups .filter-group-btn {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  break-inside: avoid;
+}
+
+@media (max-width: 600px) {
+  .filter-groups {
+    columns: 2;
+  }
 }
 
 .filter-group-btn {
@@ -284,6 +296,7 @@ body {
   cursor: pointer;
   font-family: inherit;
   transition: all 0.2s;
+  text-align: left;
 }
 
 .filter-group-btn:hover {
@@ -294,6 +307,21 @@ body {
 .filter-group-btn.active {
   background: rgba(230, 57, 70, 0.6);
   border-color: rgba(230, 57, 70, 0.8);
+  color: #fff;
+}
+
+.filter-select-all {
+  column-span: all;
+  border-style: dashed;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.filter-group-btn.unclassified {
+  color: #ff6b6b;
+}
+
+.filter-group-btn.unclassified.active {
   color: #fff;
 }
 

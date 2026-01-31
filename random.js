@@ -1,3 +1,5 @@
+// random.js - Random mix selection with filter support
+
 const grid = document.getElementById('grid');
 
 // Filter elements
@@ -10,47 +12,20 @@ const filterClearBtn = document.getElementById('filterClearBtn');
 let selectedGroups = new Set();
 let filteredTracks = tracks;
 
-// Group name mapping for display
-const groupNames = {
-  'AF': 'Analogical Force', 'Archaic': 'Archaic', 'Bassiani': 'Bassiani',
-  'DeepBreakfast': 'Deep Breakfast', 'Dekmantel': 'Dekmantel',
-  'DSH': 'Deep Space Helsinki', 'DSS': 'Deep Space Series',
-  'FMB': 'Feel My Bicep', 'Hate': 'Hate', 'IA': 'Inverted Audio',
-  'Ilian': 'Ilian Tape', 'Isolated': 'Isolated', 'MDC': 'Melbourne Deepcast',
-  'Memoir': 'Memoir', 'Mesh': 'Mesh', 'Monument': 'Monument',
-  'MonumentLive': 'Monument Live', 'MonumentRecordings': 'Monument Recordings',
-  'MonumentWaves': 'Monument Waves', 'Nousklaer': "Nous'klaer",
-  'Oslated': 'Oslated', 'Pure': 'Pure', 'RYC': 'Reclaim Your City',
-  'RA': 'Resident Advisor', 'RALive': 'Resident Advisor Live',
-  'Rural': 'Rural', 'RuralFestival': 'Rural Festival', 'Slam': 'Slam Radio',
-  'RoelFuncken': 'Roel Funcken', 'Unclassified': 'Unclassified'
-};
-
-// Better random number generator using crypto API
-function secureRandom() {
-  const array = new Uint32Array(1);
-  crypto.getRandomValues(array);
-  return array[0] / (0xFFFFFFFF + 1);
-}
-
-// Shuffle helper using crypto-based randomness
-function shuffle(array) {
-  const arr = [...array];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(secureRandom() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
-}
-
-// Pick random tracks weighted by group size
-function getRandomTracksWeighted(tracksArray, count = 8) {
+// Pick random tracks with per-group cap based on number of selected groups
+function getRandomTracks(tracksArray, count = 8) {
   const shuffled = shuffle([...tracksArray]);
+  const numGroups = selectedGroups.size;
 
-  // To avoid too many from the same group, limit to max 2 per group
+  // Scale per-group cap: 1 group = 8, 2 = 4, 3 = 3, 4+ or unfiltered = 2
+  let maxPerGroup;
+  if (numGroups === 1) maxPerGroup = 8;
+  else if (numGroups === 2) maxPerGroup = 4;
+  else if (numGroups === 3) maxPerGroup = 3;
+  else maxPerGroup = 2;
+
   const result = [];
   const groupCounts = {};
-  const maxPerGroup = 2;
 
   for (const track of shuffled) {
     if (result.length >= count) break;
@@ -69,7 +44,7 @@ function getRandomTracksWeighted(tracksArray, count = 8) {
 
 function renderRandomTracks() {
   grid.innerHTML = '';
-  const randomTracks = getRandomTracksWeighted(filteredTracks, 8);
+  const randomTracks = getRandomTracks(filteredTracks, 8);
 
   randomTracks.forEach(track => {
     const iframe = document.createElement('iframe');
@@ -82,32 +57,8 @@ function renderRandomTracks() {
   });
 }
 
-// Filter popup
-function buildFilterPopup() {
-  const groups = [...new Set(tracks.map(t => t.group))].sort((a, b) => {
-    const nameA = (groupNames[a] || a).toLowerCase();
-    const nameB = (groupNames[b] || b).toLowerCase();
-    return nameA.localeCompare(nameB);
-  });
-
-  filterGroups.innerHTML = '';
-  groups.forEach(group => {
-    const count = tracks.filter(t => t.group === group).length;
-    const btn = document.createElement('button');
-    btn.className = 'filter-group-btn';
-    btn.textContent = `${groupNames[group] || group} (${count})`;
-    btn.dataset.group = group;
-    if (selectedGroups.has(group)) btn.classList.add('active');
-    btn.addEventListener('click', () => {
-      btn.classList.toggle('active');
-      if (selectedGroups.has(group)) {
-        selectedGroups.delete(group);
-      } else {
-        selectedGroups.add(group);
-      }
-    });
-    filterGroups.appendChild(btn);
-  });
+function rebuildFilter() {
+  buildFilterPopup(tracks, selectedGroups, filterGroups, rebuildFilter);
 }
 
 function applyFilter() {
@@ -123,7 +74,7 @@ function applyFilter() {
 
 // Filter event listeners
 filterBtn.addEventListener('click', () => {
-  buildFilterPopup();
+  rebuildFilter();
   filterOverlay.classList.add('show');
 });
 
@@ -135,7 +86,7 @@ filterApplyBtn.addEventListener('click', applyFilter);
 
 filterClearBtn.addEventListener('click', () => {
   selectedGroups.clear();
-  buildFilterPopup();
+  rebuildFilter();
 });
 
 // Initial render
