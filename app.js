@@ -47,6 +47,23 @@ function shuffle(array) {
   return arr;
 }
 
+// Returns page numbers with ellipsis truncation
+function getVisiblePages(current, total) {
+  if (total <= 7) {
+    return Array.from({length: total}, (_, i) => i + 1);
+  }
+  const pages = new Set([1, 2, total - 1, total, current - 1, current, current + 1]);
+  const sorted = [...pages].filter(p => p >= 1 && p <= total).sort((a, b) => a - b);
+  const result = [];
+  for (let i = 0; i < sorted.length; i++) {
+    if (i > 0 && sorted[i] - sorted[i - 1] > 1) {
+      result.push('...');
+    }
+    result.push(sorted[i]);
+  }
+  return result;
+}
+
 function init() {
   baseTracks = tracks.filter(t => t.group === group);
   applySortAndRender('latest');
@@ -99,16 +116,22 @@ function renderPage(page) {
   nextBtn.style.display = (page === totalPages) ? 'none' : 'block';
 
   pageNumbersDiv.innerHTML = '';
-  for (let i = 1; i <= totalPages; i++) {
+  const pages = getVisiblePages(currentPage, totalPages);
+  pages.forEach(p => {
     const span = document.createElement('span');
-    span.textContent = i;
-    span.className = (i === currentPage) ? 'current' : '';
-    span.addEventListener('click', () => {
-      currentPage = i;
-      renderPage(currentPage);
-    });
+    if (p === '...') {
+      span.textContent = '...';
+      span.className = 'ellipsis';
+    } else {
+      span.textContent = p;
+      span.className = (p === currentPage) ? 'current' : '';
+      span.addEventListener('click', () => {
+        currentPage = p;
+        renderPage(currentPage);
+      });
+    }
     pageNumbersDiv.appendChild(span);
-  }
+  });
 }
 
 prevBtn.addEventListener('click', () => {

@@ -14,7 +14,19 @@
 
 <div class="bottom-nav">
   <a href="index.html" class="home-link">Home</a>
+  <button class="filter-btn" id="filterBtn">Filter</button>
   <button id="shuffleBtn" class="home-link" style="background:none;border:none;cursor:pointer;font-family:inherit;">Pull New Batch</button>
+</div>
+
+<div class="filter-overlay" id="filterOverlay">
+  <div class="filter-popup">
+    <h3>Filter by Group</h3>
+    <div class="filter-groups" id="filterGroups"></div>
+    <div class="filter-actions">
+      <button class="filter-clear" id="filterClearBtn">Clear</button>
+      <button class="filter-apply" id="filterApplyBtn">Apply</button>
+    </div>
+  </div>
 </div>
 
 <script src="mix_all.js"></script>

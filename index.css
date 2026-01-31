@@ -38,10 +38,11 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.15em;
-  color: #4a9eff;
+  color: #fff;
   margin: 0 0 1rem 0;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid #222;
+  padding: 0.5rem 0.75rem;
+  background: rgba(230, 57, 70, 0.6);
+  border-radius: 4px;
 }
 
 .link-grid {
@@ -68,13 +69,6 @@ body {
   border-bottom: none;
 }
 
-.link-item-red {
-  color: #e63946;
-}
-
-.link-item-red:hover {
-  color: #ff4d5a;
-}
 
 /* Tablet */
 @media (max-width: 768px) {

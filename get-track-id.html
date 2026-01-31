@@ -100,6 +100,7 @@
   <div id="inputs"></div>
 
   <button onclick="getAllTrackIds()">Get All Track IDs</button>
+  <button onclick="clearAll()" style="background:#333;">Clear All</button>
 
   <div id="result">
     <div id="output"></div>
@@ -185,6 +186,15 @@
       }
 
       output.innerHTML = html;
+    }
+
+    function clearAll() {
+      for (let i = 0; i < 10; i++) {
+        document.getElementById(`url${i}`).value = '';
+      }
+      const result = document.getElementById('result');
+      result.className = '';
+      document.getElementById('output').innerHTML = '';
     }
 
     function copyTsv() {

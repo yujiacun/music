@@ -17,6 +17,7 @@
 
   <div class="bottom-nav">
     <a href="index.html" class="home-link">Home</a>
+    <button class="filter-btn" id="filterBtn">Filter</button>
     <div class="sort-controls">
       <button class="sort-btn active" id="sortLatest">Latest</button>
       <button class="sort-btn" id="sortEarliest">Earliest</button>
@@ -24,6 +25,18 @@
     </div>
     <div class="page-numbers" id="pageNumbers"></div>
   </div>
+
+  <div class="filter-overlay" id="filterOverlay">
+    <div class="filter-popup">
+      <h3>Filter by Group</h3>
+      <div class="filter-groups" id="filterGroups"></div>
+      <div class="filter-actions">
+        <button class="filter-clear" id="filterClearBtn">Clear</button>
+        <button class="filter-apply" id="filterApplyBtn">Apply</button>
+      </div>
+    </div>
+  </div>
+
   <script src="all.js"></script>
 
 </body>
