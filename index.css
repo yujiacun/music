@@ -16,7 +16,7 @@ body {
 
 
 .landing-container {
-  max-width: 600px;
+  max-width: 900px;
   width: 100%;
 }
 
@@ -36,12 +36,29 @@ body {
   padding-left: 0.5rem;
 }
 
+.site-tagline {
+  text-align: center;
+  color: #666;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: -1.5rem 0 2rem 0;
+}
+
+.site-title-static {
+  cursor: default;
+}
+
+.site-title-static:hover {
+  padding-left: 0;
+}
+
 
 .section {
   margin-bottom: 2rem;
 }
 
 .section-title {
+  display: block;
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -49,9 +66,15 @@ body {
   color: #fff;
   margin: 0 0 1rem 0;
   padding: 0.5rem 0.75rem;
-  background: rgba(230, 57, 70, 0.6);
+  background: rgba(50, 100, 180, 0.6);
   border-radius: 4px;
   text-align: center;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.section-title:hover {
+  background: rgba(50, 100, 180, 0.8);
 }
 
 .link-grid {
@@ -62,7 +85,7 @@ body {
 
 .link-grid-2col {
   display: block;
-  columns: 2;
+  columns: 3;
   column-gap: 2rem;
 }
 
@@ -136,6 +159,7 @@ body {
   color: #999;
   font-size: 0.95rem;
   line-height: 1.7;
+  padding: 0 5rem;
 }
 
 .about-text p {
@@ -143,8 +167,33 @@ body {
 }
 
 .about-text p:last-child {
+  color: #999;
+}
+
+.about-text a {
   color: #ccc;
-  font-style: italic;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.about-text a:hover {
+  color: #fff;
+}
+
+.about-text a.link-red {
+  color: #ff6b6b;
+}
+
+.about-text a.link-red:hover {
+  color: #ff6b6b;
+}
+
+.about-text a.link-orange {
+  color: #ff7700;
+}
+
+.about-text a.link-orange:hover {
+  color: #ff7700;
 }
 
 .section-footer {
@@ -157,27 +206,14 @@ body {
 }
 
 
-/* Tablet */
+/* Tablet & Mobile */
 @media (max-width: 768px) {
   body {
     padding: 1.5rem;
   }
-
-  .site-title {
-    font-size: 2.2rem;
-  }
 }
 
-/* Mobile */
 @media (max-width: 480px) {
-  body {
-    padding: 1.5rem;
-  }
-
-  .site-title {
-    font-size: 2rem;
-  }
-
   .link-item {
     font-size: 0.95rem;
     padding: 0.35rem 0;

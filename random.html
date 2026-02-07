@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Random Tracks</title>
+  <title>Random - Mix Repo</title>
+  <meta name="description" content="Discover random mixes from a curated collection on Mix Repo.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="tracks.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
 
@@ -15,12 +17,11 @@
 <div class="bottom-nav">
   <a href="index.html" class="home-link">Home</a>
   <button class="filter-btn" id="filterBtn">Filter</button>
-  <button id="shuffleBtn" class="home-link" style="background:none;border:none;cursor:pointer;font-family:inherit;">Pull New Batch</button>
+  <button id="shuffleBtn" class="filter-btn" style="border-right:none;padding-right:0;">Random</button>
 </div>
 
 <div class="filter-overlay" id="filterOverlay">
   <div class="filter-popup">
-    <h3>Filter by Group</h3>
     <div class="filter-groups" id="filterGroups"></div>
     <div class="filter-actions">
       <button class="filter-clear" id="filterClearBtn">Clear</button>

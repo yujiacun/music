@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>All Mixes</title>
+  <title>All Mixes - Mix Repo</title>
+  <meta name="description" content="Browse all curated mixes on Mix Repo. Filter by series, sort by latest, earliest, or random.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="tracks.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
@@ -17,6 +19,7 @@
 
   <div class="bottom-nav">
     <a href="index.html" class="home-link">Home</a>
+    <span class="track-count" id="trackCount"></span>
     <button class="filter-btn" id="filterBtn">Filter</button>
     <div class="sort-controls">
       <button class="sort-btn active" id="sortLatest">Latest</button>
@@ -28,7 +31,6 @@
 
   <div class="filter-overlay" id="filterOverlay">
     <div class="filter-popup">
-      <h3>Filter by Group</h3>
       <div class="filter-groups" id="filterGroups"></div>
       <div class="filter-actions">
         <button class="filter-clear" id="filterClearBtn">Clear</button>
@@ -37,6 +39,7 @@
     </div>
   </div>
 
+  <script src="mix_all.js"></script>
   <script src="utils.js"></script>
   <script src="all.js"></script>
 

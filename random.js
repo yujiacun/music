@@ -1,4 +1,5 @@
 // random.js - Random mix selection with filter support
+setMetaDescription('Discover random mixes from a curated collection of ' + tracks.length + ' tracks on Mix Repo.');
 
 const grid = document.getElementById('grid');
 
@@ -47,13 +48,7 @@ function renderRandomTracks() {
   const randomTracks = getRandomTracks(filteredTracks, 8);
 
   randomTracks.forEach(track => {
-    const iframe = document.createElement('iframe');
-    iframe.className = 'sc-player';
-    iframe.dataset.track = track.id;
-    iframe.title = track.title;
-    iframe.loading = 'lazy';
-    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${track.id}&color=%23f60808&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true`;
-    grid.appendChild(iframe);
+    grid.appendChild(createEmbed(track));
   });
 }
 

@@ -3,67 +3,84 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>MixRepo</title>
+  <title>Mix Repo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A curated collection of music mixes from SoundCloud. Browse by series, explore all, or discover something new at random.">
   <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 
 <body>
   <div class="landing-container">
     <a href="https://github.com/yujiacun/music" class="site-title" target="_blank">Mix Repo</a>
+    <div class="site-tagline">Curated Mixes</div>
 
     <div class="section">
       <h2 class="section-title">Miscellaneous</h2>
       <div class="link-grid link-grid-2col">
-        <a href="random.html" class="link-item">Random</a>
         <a href="all.html" class="link-item" data-group="all">All Mixes</a>
+        <a href="tracks.html?group=Unclassified" class="link-item" data-group="Unclassified">Unclassified</a>
+        <a href="random.html" class="link-item link-item-red">Random</a>
       </div>
     </div>
 
     <div class="section">
-      <h2 class="section-title">Mix Series</h2>
+      <a href="all.html?type=mix" class="section-title" data-type="mix">Mix Series</a>
       <div class="link-grid link-grid-2col">
-        <a href="tracks.html?group=AF"                      class="link-item" data-group="AF">Analogical Force</a>
-        <a href="tracks.html?group=Archaic"                 class="link-item" data-group="Archaic">Archaic</a>
-        <a href="tracks.html?group=ArtBeiTon"               class="link-item" data-group="ArtBeiTon">Art Bei Ton</a>
         <a href="tracks.html?group=Bassiani"                class="link-item" data-group="Bassiani">Bassiani</a>
+        <a href="tracks.html?group=Camp"                    class="link-item" data-group="Camp">Campfire Stories</a>
         <a href="tracks.html?group=DeepBreakfast"           class="link-item" data-group="DeepBreakfast">Deep Breakfast</a>
         <a href="tracks.html?group=Dekmantel"               class="link-item" data-group="Dekmantel">Dekmantel</a>
+        <a href="tracks.html?group=DiscWom"                  class="link-item" data-group="DiscWom">Disc Woman</a>
         <a href="tracks.html?group=DSH"                     class="link-item" data-group="DSH">Deep Space Helsinki</a>
-        <a href="tracks.html?group=DSS"                     class="link-item" data-group="DSS">Deep Space Series</a>
-        <a href="tracks.html?group=EE"                      class="link-item" data-group="EE">Electronic Explorations</a>
-        <a href="tracks.html?group=FMB"                     class="link-item" data-group="FMB">Feel My Bicep</a>
-        <a href="tracks.html?group=Hate"                    class="link-item" data-group="Hate">Hate</a>
         <a href="tracks.html?group=IA"                      class="link-item" data-group="IA">Inverted Audio</a>
         <a href="tracks.html?group=Ilian"                   class="link-item" data-group="Ilian">Ilian Tape</a>
         <a href="tracks.html?group=Isolated"                class="link-item" data-group="Isolated">Isolated</a>
+        <a href="tracks.html?group=LIES"                    class="link-item" data-group="LIES">L.I.E.S</a>
         <a href="tracks.html?group=MDC"                     class="link-item" data-group="MDC">Melbourne Deepcast</a>
         <a href="tracks.html?group=Memoir"                  class="link-item" data-group="Memoir">Memoir</a>
         <a href="tracks.html?group=Mesh"                    class="link-item" data-group="Mesh">Mesh</a>
+        <a href="tracks.html?group=MissTape"                class="link-item" data-group="MissTape">Missing Tapes</a>
+        <a href="tracks.html?group=Modcast"                 class="link-item" data-group="Modcast">Modcast</a>
         <a href="tracks.html?group=Monument"                class="link-item" data-group="Monument">Monument</a>
-        <a href="tracks.html?group=MonumentLive"            class="link-item" data-group="MonumentLive">Monument Live</a>
-        <a href="tracks.html?group=MonumentRecordings"      class="link-item" data-group="MonumentRecordings">Monument Recordings</a>
         <a href="tracks.html?group=MonumentWaves"           class="link-item" data-group="MonumentWaves">Monument Waves</a>
         <a href="tracks.html?group=Nousklaer"               class="link-item" data-group="Nousklaer">Nous'klaer</a>
         <a href="tracks.html?group=Oslated"                 class="link-item" data-group="Oslated">Oslated</a>
-        <a href="tracks.html?group=Phonons"                 class="link-item" data-group="Phonons">Phonons</a>
+        <a href="tracks.html?group=Phonica"                 class="link-item" data-group="Phonica">Phonica</a>
+        <a href="tracks.html?group=PhonicaFRDFAM"           class="link-item" data-group="PhonicaFRDFAM">Phonica Friends and Family</a>
+        <a href="tracks.html?group=PhonicaOff"              class="link-item" data-group="PhonicaOff">Phonica Off The Record</a>
         <a href="tracks.html?group=Pure"                    class="link-item" data-group="Pure">Pure</a>
+        <a href="tracks.html?group=RDC"                     class="link-item" data-group="RDC">Rainbow Disco Club</a>
         <a href="tracks.html?group=RYC"                     class="link-item" data-group="RYC">Reclaim Your City</a>
         <a href="tracks.html?group=RA"                      class="link-item" data-group="RA">Resident Advisor</a>
-        <a href="tracks.html?group=RALive"                  class="link-item" data-group="RALive">Resident Advisor Live</a>
         <a href="tracks.html?group=Rural"                   class="link-item" data-group="Rural">Rural</a>
-        <a href="tracks.html?group=RuralFestival"           class="link-item" data-group="RuralFestival">Rural Festival</a>
+        <a href="tracks.html?group=Sensu"                   class="link-item" data-group="Sensu">Sensu</a>
         <a href="tracks.html?group=Slam"                    class="link-item" data-group="Slam">Slam Radio</a>
+        <a href="tracks.html?group=Smoke"                   class="link-item" data-group="Smoke">Smoke Machine</a>
+        <a href="tracks.html?group=SoundsNowhere"           class="link-item" data-group="SoundsNowhere">Sounds From Nowhere</a>
         <a href="tracks.html?group=SoundSculpters"          class="link-item" data-group="SoundSculpters">Sound Sculpters</a>
-        <a href="tracks.html?group=Unclassified"            class="link-item link-item-red" data-group="Unclassified">Unclassified</a>
-        <a href="tracks.html?group=Undulate"                class="link-item" data-group="Undulate">Undulate</a>
+        <a href="tracks.html?group=Uncover"                 class="link-item" data-group="Uncover">Uncover</a>
+        <a href="tracks.html?group=Zenarri"                 class="link-item" data-group="Zenarri">Zenarri</a>
       </div>
     </div>
 
     <div class="section">
-      <h2 class="section-title">DJ Series</h2>
-      <div class="link-grid link-grid-center">
-        <a href="tracks.html?group=RoelFuncken" class="link-item" data-group="RoelFuncken">Roel Funcken</a>
+      <a href="all.html?type=live" class="section-title" data-type="live">Live / Festival</a>
+      <div class="link-grid link-grid-2col">
+        <a href="tracks.html?group=Draaimolen"              class="link-item" data-group="Draaimolen">Draaimolen</a>
+        <a href="tracks.html?group=MonumentLive"            class="link-item" data-group="MonumentLive">Monument Live</a>
+        <a href="tracks.html?group=MonumentRecordings"      class="link-item" data-group="MonumentRecordings">Monument Recordings</a>
+        <a href="tracks.html?group=RALive"                  class="link-item" data-group="RALive">Resident Advisor Live</a>
+        <a href="tracks.html?group=RuralFestival"           class="link-item" data-group="RuralFestival">Rural Festival</a>
+      </div>
+    </div>
+
+    <div class="section">
+      <a href="all.html?type=radio" class="section-title" data-type="radio">Radio</a>
+      <div class="link-grid link-grid-2col">
+        <a href="tracks.html?group=NTS"                     class="link-item" data-group="NTS">NTS</a>
+        <a href="tracks.html?group=Rinse"                   class="link-item" data-group="Rinse">Rinse FM</a>
+        <a href="tracks.html?group=LOT"                     class="link-item" data-group="LOT">The Lot Radio</a>
       </div>
     </div>
 
@@ -83,6 +100,15 @@
         count = tracks.filter(t => t.group === group).length;
       }
       link.textContent = link.textContent + ' (' + count + ')';
+    });
+
+    // Add counts to section titles
+    const typeMap = { NTS: 'radio', LOT: 'radio', Rinse: 'radio', Draaimolen: 'live', MonumentLive: 'live', MonumentRecordings: 'live', RALive: 'live', RuralFestival: 'live' };
+    const getType = g => typeMap[g] || 'mix';
+    document.querySelectorAll('.section-title[data-type]').forEach(title => {
+      const type = title.dataset.type;
+      const count = tracks.filter(t => getType(t.group) === type).length;
+      title.textContent = title.textContent + ' (' + count + ')';
     });
   </script>
 </body>

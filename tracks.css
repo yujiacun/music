@@ -46,6 +46,14 @@ body {
   width: 100%;
   border: 2px solid #000000;
   border-radius: 20px;
+  background: linear-gradient(90deg, #1a1a1a 25%, #252525 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 /* 1440p+ wide screens — 4 columns, larger players */
@@ -142,8 +150,15 @@ body {
   flex-wrap: wrap;
 }
 
+.track-count {
+  color: #fff;
+  font-size: 1.25rem;
+  padding-right: 2rem;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
 .home-link {
-  color: #ccc;
+  color: #fff;
   text-decoration: none;
   font-size: 1.25rem;
   cursor: pointer;
@@ -167,7 +182,7 @@ body {
 .sort-btn {
   background: none;
   border: none;
-  color: #999;
+  color: #ccc;
   font-size: 1.25rem;
   cursor: pointer;
   padding: 0;
@@ -190,13 +205,14 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 2px;
 }
 
 .page-numbers span {
   margin: 0 4px;
   cursor: pointer;
-  color: #ccc;
+  color: #fff;
   transition: color 0.2s;
 }
 
@@ -214,9 +230,23 @@ body {
   color: #999;
 }
 
+.page-numbers .page-arrow {
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.875rem;
+  transition: color 0.2s;
+  margin: 0 4px;
+  position: relative;
+  top: -2px;
+}
+
+.page-numbers .page-arrow:hover {
+  color: #fff;
+}
+
 /* FILTER POPUP */
 .filter-btn {
-  color: #ccc;
+  color: #fff;
   text-decoration: none;
   font-size: 1.25rem;
   cursor: pointer;
@@ -252,10 +282,10 @@ body {
 
 .filter-popup {
   background: #1a1a1a;
-  border: 1px solid #333;
+  border: 3px solid rgba(230, 57, 70, 0.6);
   border-radius: 8px;
   padding: 1.5rem;
-  max-width: 700px;
+  max-width: 800px;
   width: 90%;
   max-height: 80vh;
   overflow-y: auto;
@@ -269,11 +299,38 @@ body {
 }
 
 .filter-groups {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-section-title {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  margin: 0.75rem 0 0.5rem 0;
+  padding: 0.4rem 0.6rem;
+  background: rgba(50, 100, 180, 0.6);
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: 1px solid transparent;
+}
+
+.filter-section-title:hover {
+  background: rgba(50, 100, 180, 0.8);
+  border-color: rgba(50, 100, 180, 1);
+}
+
+.filter-section-groups {
   columns: 3;
   column-gap: 0.5rem;
 }
 
-.filter-groups .filter-group-btn {
+
+.filter-section-groups .filter-group-btn {
   display: block;
   width: 100%;
   margin-bottom: 0.5rem;
@@ -281,8 +338,14 @@ body {
 }
 
 @media (max-width: 600px) {
-  .filter-groups {
+  .filter-section-groups {
     columns: 2;
+  }
+}
+
+@media (max-width: 400px) {
+  .filter-section-groups {
+    columns: 1;
   }
 }
 
@@ -310,11 +373,21 @@ body {
   color: #fff;
 }
 
-.filter-select-all {
-  column-span: all;
-  border-style: dashed;
-  margin-bottom: 0.5rem;
-  text-align: center;
+.filter-action-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  font-family: inherit;
+  background: transparent;
+  border: 1px dashed #555;
+  color: #e0e0e0;
+}
+
+.filter-action-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #999;
+  color: #fff;
 }
 
 .filter-group-btn.unclassified {
@@ -328,7 +401,9 @@ body {
 .filter-actions {
   display: flex;
   gap: 0.75rem;
-  margin-top: 1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #333;
   justify-content: flex-end;
 }
 
@@ -338,35 +413,27 @@ body {
   font-size: 0.9rem;
   cursor: pointer;
   font-family: inherit;
-  border: none;
 }
 
 .filter-apply {
-  background: rgba(230, 57, 70, 0.8);
+  background: rgba(50, 100, 180, 0.8);
   color: #fff;
+  border: none;
 }
 
 .filter-apply:hover {
-  background: rgba(230, 57, 70, 1);
+  background: rgba(50, 100, 180, 1);
 }
 
 .filter-clear {
-  background: #333;
-  color: #ccc;
+  background: transparent;
+  border: 1px dashed #555;
+  color: #e0e0e0;
 }
 
 .filter-clear:hover {
-  background: #444;
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #999;
   color: #fff;
 }
 
-/*SHUFFLE BUTTON*/
-#shuffleBtn {
-  color: #ccc;
-  font-size: 1.25rem;
-  transition: color 0.2s;
-}
-
-#shuffleBtn:hover {
-  color: #fff;
-}
